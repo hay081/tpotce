@@ -6,16 +6,17 @@ networks:
   adbhoney_local:
   ciscoasa_local:
   citrixhoneypot_local:
-  conpot_local_IEC104:
-  conpot_local_guardian_ast:
-  conpot_local_ipmi:
-  conpot_local_kamstrup_382:
+  #conpot_local_IEC104:
+  #conpot_local_guardian_ast:
+  #conpot_local_ipmi:
+  #conpot_local_kamstrup_382:
   cowrie_local:
   dicompot_local:
-  dionaea_local:
+  #dionaea_local:
   elasticpot_local:
   heralding_local:
   honeypy_local:
+  #honeysap_local
   mailoney_local:
   medpot_local:
   rdpy_local:
@@ -72,90 +73,90 @@ services:
      - /data/citrixhoneypot/logs:/opt/citrixhoneypot/logs
 
 # Conpot IEC104 service
-  conpot_IEC104:
-    container_name: conpot_iec104
-    restart: always
-    environment:
-     - CONPOT_CONFIG=/etc/conpot/conpot.cfg
-     - CONPOT_JSON_LOG=/var/log/conpot/conpot_IEC104.json
-     - CONPOT_LOG=/var/log/conpot/conpot_IEC104.log
-     - CONPOT_TEMPLATE=IEC104
-     - CONPOT_TMP=/tmp/conpot
-    tmpfs:
-     - /tmp/conpot:uid=2000,gid=2000
-    networks:
-     - conpot_local_IEC104
-    ports:
-     - "161:161/udp"
-     - "2404:2404"
-    image: "hay132/conpot"
-    read_only: true
-    volumes:
-     - /data/conpot/log:/var/log/conpot
+#  conpot_IEC104:
+#    container_name: conpot_iec104
+#    restart: always
+#    environment:
+#     - CONPOT_CONFIG=/etc/conpot/conpot.cfg
+#     - CONPOT_JSON_LOG=/var/log/conpot/conpot_IEC104.json
+#     - CONPOT_LOG=/var/log/conpot/conpot_IEC104.log
+##     - CONPOT_TEMPLATE=IEC104
+#     - CONPOT_TMP=/tmp/conpot
+#    tmpfs:
+#     - /tmp/conpot:uid=2000,gid=2000
+#    networks:
+#     - conpot_local_IEC104
+#    ports:
+#     - "161:161/udp"
+#     - "2404:2404"
+#    image: "hay132/conpot"
+#    read_only: true
+#    volumes:
+#     - /data/conpot/log:/var/log/conpot
 
 # Conpot guardian_ast service
-  conpot_guardian_ast:
-    container_name: conpot_guardian_ast
-    restart: always
-    environment:
-     - CONPOT_CONFIG=/etc/conpot/conpot.cfg
-     - CONPOT_JSON_LOG=/var/log/conpot/conpot_guardian_ast.json
-     - CONPOT_LOG=/var/log/conpot/conpot_guardian_ast.log
-     - CONPOT_TEMPLATE=guardian_ast
-     - CONPOT_TMP=/tmp/conpot
-    tmpfs:
-     - /tmp/conpot:uid=2000,gid=2000
-    networks:
-     - conpot_local_guardian_ast
-    ports:
-     - "10001:10001"
-    image: "hay132/conpot"
-    read_only: true
-    volumes:
-     - /data/conpot/log:/var/log/conpot
+#  conpot_guardian_ast:
+#    container_name: conpot_guardian_ast
+#    restart: always
+#    environment:
+#     - CONPOT_CONFIG=/etc/conpot/conpot.cfg
+#     - CONPOT_JSON_LOG=/var/log/conpot/conpot_guardian_ast.json
+#     - CONPOT_LOG=/var/log/conpot/conpot_guardian_ast.log
+#     - CONPOT_TEMPLATE=guardian_ast
+#     - CONPOT_TMP=/tmp/conpot
+#    tmpfs:
+#     - /tmp/conpot:uid=2000,gid=2000
+#    networks:
+#     - conpot_local_guardian_ast
+#    ports:
+#     - "10001:10001"
+#    image: "hay132/conpot"
+#    read_only: true
+#    volumes:
+v     - /data/conpot/log:/var/log/conpot
 
 # Conpot ipmi
-  conpot_ipmi:
-    container_name: conpot_ipmi
-    restart: always
-    environment:
-     - CONPOT_CONFIG=/etc/conpot/conpot.cfg
-     - CONPOT_JSON_LOG=/var/log/conpot/conpot_ipmi.json
-     - CONPOT_LOG=/var/log/conpot/conpot_ipmi.log
-     - CONPOT_TEMPLATE=ipmi
-     - CONPOT_TMP=/tmp/conpot
-    tmpfs:
-     - /tmp/conpot:uid=2000,gid=2000
-    networks:
-     - conpot_local_ipmi
-    ports:
-     - "623:623/udp"
-    image: "hay132/conpot"
-    read_only: true
-    volumes:
-     - /data/conpot/log:/var/log/conpot
+#  conpot_ipmi:
+#    container_name: conpot_ipmi
+#    restart: always
+#    environment:
+#     - CONPOT_CONFIG=/etc/conpot/conpot.cfg
+#     - CONPOT_JSON_LOG=/var/log/conpot/conpot_ipmi.json
+#     - CONPOT_LOG=/var/log/conpot/conpot_ipmi.log
+#     - CONPOT_TEMPLATE=ipmi
+#     - CONPOT_TMP=/tmp/conpot
+#    tmpfs:
+#     - /tmp/conpot:uid=2000,gid=2000
+#    networks:
+#     - conpot_local_ipmi
+#    ports:
+#     - "623:623/udp"
+#    image: "hay132/conpot"
+#    read_only: true
+#    volumes:
+#     - /data/conpot/log:/var/log/conpot
 
 # Conpot kamstrup_382
-  conpot_kamstrup_382:
-    container_name: conpot_kamstrup_382
-    restart: always
-    environment:
-     - CONPOT_CONFIG=/etc/conpot/conpot.cfg
-     - CONPOT_JSON_LOG=/var/log/conpot/conpot_kamstrup_382.json
-     - CONPOT_LOG=/var/log/conpot/conpot_kamstrup_382.log
-     - CONPOT_TEMPLATE=kamstrup_382
-     - CONPOT_TMP=/tmp/conpot
-    tmpfs:
-     - /tmp/conpot:uid=2000,gid=2000
-    networks:
-     - conpot_local_kamstrup_382
-    ports:
-     - "1025:1025"
-     - "50100:50100"
-    image: "hay132/conpot"
-    read_only: true
-    volumes:
-     - /data/conpot/log:/var/log/conpot
+#  conpot_kamstrup_382:
+#    container_name: conpot_kamstrup_382
+#    restart: always
+#    environment:
+#     - CONPOT_CONFIG=/etc/conpot/conpot.cfg
+#     - CONPOT_JSON_LOG=/var/log/conpot/conpot_kamstrup_382.json
+#     - CONPOT_LOG=/var/log/conpot/conpot_kamstrup_382.log
+#     - CONPOT_TEMPLATE=kamstrup_382
+#     - CONPOT_TMP=/tmp/conpot
+#    tmpfs:
+#     - /tmp/conpot:uid=2000,gid=2000
+#    networks:
+#     - conpot_local_kamstrup_382
+#    ports:
+#     - "1025:1025"
+#     - "50100:50100"
+#    image: "hay132/conpot"
+#    read_only: true
+#    volumes:
+#     - /data/conpot/log:/var/log/conpot
 
 # Cowrie service
   cowrie:
@@ -194,42 +195,42 @@ services:
      - /data/dicompot/log:/var/log/dicompot
 #     - /data/dicompot/images:/opt/dicompot/images
 
-# Dionaea service
-  dionaea:
-    container_name: dionaea
-    stdin_open: true
-    tty: true
-    restart: always
-    networks:
-     - dionaea_local
-    ports:
-     - "20:20"
-     - "21:21"
-     - "42:42"
-     - "69:69/udp"
-     - "81:81"
-     - "135:135"
-     # - "443:443"
-     - "445:445"
-     - "1433:1433"
-     - "1723:1723"
-     - "1883:1883"
-     - "3306:3306"
-     - "5060:5060"
-     - "5060:5060/udp"
-     - "5061:5061"
-     - "27017:27017"
-    image: "hay132/dionaea"
-    read_only: true
-    volumes:
-     - /data/dionaea/roots/ftp:/opt/dionaea/var/dionaea/roots/ftp
-     - /data/dionaea/roots/tftp:/opt/dionaea/var/dionaea/roots/tftp
-     - /data/dionaea/roots/www:/opt/dionaea/var/dionaea/roots/www
-     - /data/dionaea/roots/upnp:/opt/dionaea/var/dionaea/roots/upnp
-     - /data/dionaea:/opt/dionaea/var/dionaea
-     - /data/dionaea/binaries:/opt/dionaea/var/dionaea/binaries
-     - /data/dionaea/log:/opt/dionaea/var/log
-     - /data/dionaea/rtp:/opt/dionaea/var/dionaea/rtp
+#  Dionaea service
+#  dionaea:
+#    container_name: dionaea
+#    stdin_open: true
+#    tty: true
+#    restart: always
+#    networks:
+#     - dionaea_local
+#    ports:
+#     - "20:20"
+#     - "21:21"
+#     - "42:42"
+#     - "69:69/udp"
+#     - "81:81"
+#     - "135:135"
+#     # - "443:443"
+#     - "445:445"
+#     - "1433:1433"
+#     - "1723:1723"
+#     - "1883:1883"
+#     - "3306:3306"
+#     - "5060:5060"
+#     - "5060:5060/udp"
+#     - "5061:5061"
+#     - "27017:27017"
+#    image: "hay132/dionaea"
+#    read_only: true
+#    volumes:
+#     - /data/dionaea/roots/ftp:/opt/dionaea/var/dionaea/roots/ftp
+#     - /data/dionaea/roots/tftp:/opt/dionaea/var/dionaea/roots/tftp
+#     - /data/dionaea/roots/www:/opt/dionaea/var/dionaea/roots/www
+#     - /data/dionaea/roots/upnp:/opt/dionaea/var/dionaea/roots/upnp
+#     - /data/dionaea:/opt/dionaea/var/dionaea
+#     - /data/dionaea/binaries:/opt/dionaea/var/dionaea/binaries
+#     - /data/dionaea/log:/opt/dionaea/var/log
+#     - /data/dionaea/rtp:/opt/dionaea/var/dionaea/rtp
 
 # ElasticPot service
   elasticpot:
