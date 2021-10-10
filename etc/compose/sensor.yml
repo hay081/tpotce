@@ -19,7 +19,7 @@ networks:
   #honeysap_local
   mailoney_local:
   medpot_local:
-  rdpy_local:
+  #rdpy_local:
   tanner_local:
   ewsposter_local:
 
@@ -355,25 +355,25 @@ v     - /data/conpot/log:/var/log/conpot
      - /data/medpot/log/:/var/log/medpot
 
 # Rdpy service
-  rdpy:
-    container_name: rdpy
-    extra_hosts:
-     - hpfeeds.example.com:127.0.0.1
-    restart: always
-    environment:
-     - HPFEEDS_SERVER=hpfeeds.example.com
-     - HPFEEDS_IDENT=user
-     - HPFEEDS_SECRET=pass
-     - HPFEEDS_PORT=65000
-     - SERVERID=id
-    networks:
-     - rdpy_local
-    ports:
-     - "3389:3389"
-    image: "hay132/rdpy"
-    read_only: true
-    volumes:
-     - /data/rdpy/log:/var/log/rdpy
+#  rdpy:
+#    container_name: rdpy
+#    extra_hosts:
+#     - hpfeeds.example.com:127.0.0.1
+#    restart: always
+#    environment:
+#     - HPFEEDS_SERVER=hpfeeds.example.com
+#     - HPFEEDS_IDENT=user
+#     - HPFEEDS_SECRET=pass
+#     - HPFEEDS_PORT=65000
+#     - SERVERID=id
+#    networks:
+#     - rdpy_local
+#    ports:
+#     - "3389:3389"
+#    image: "hay132/rdpy"
+#    read_only: true
+#    volumes:
+#     - /data/rdpy/log:/var/log/rdpy
 
 #### Snare / Tanner
 ## Tanner Redis Service
