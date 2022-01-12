@@ -839,7 +839,7 @@ systemctl enable tpot
 
 # Let's take care of some files and permissions
 fuBANNER "Permissions"
-chmod 770 -R /data
+#chmod 770 -R /data
 if [ "$myTPOT_DEPLOYMENT_TYPE" == "iso" ];
   then
     usermod -a -G tpot tsec
@@ -847,9 +847,9 @@ if [ "$myTPOT_DEPLOYMENT_TYPE" == "iso" ];
   else
     usermod -a -G tpot $(who am i | awk '{ print $1 }')
 fi
-chown tpot:tpot -R /data
-chmod 644 -R /data/nginx/conf
-chmod 644 -R /data/nginx/cert
+#chown tpot:tpot -R /data
+#chmod 644 -R /data/nginx/conf
+#chmod 644 -R /data/nginx/cert
 
 # Let's replace "quiet splash" options, set a console font for more screen canvas and update grub
 fuBANNER "Options"
