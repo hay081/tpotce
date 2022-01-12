@@ -274,10 +274,10 @@ fi
 
 
 ### Let's take care of some files and permissions
-chmod 770 -R /data
-chown tpot:tpot -R /data
-chmod 644 -R /data/nginx/conf
-chmod 644 -R /data/nginx/cert
+#chmod 770 -R /data
+#chown tpot:tpot -R /data
+#chmod 644 -R /data/nginx/conf
+#chmod 644 -R /data/nginx/cert
 
 echo "### Now pulling latest docker images"
 echo "######$myBLUE This might take a while, please be patient!$myWHITE"
